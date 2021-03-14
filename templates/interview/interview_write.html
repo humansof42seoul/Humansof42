@@ -12,6 +12,7 @@
                     <textarea name="content" id="summernote">
                         {{ form.content.value|default_if_none:'' }}</textarea>
                     <script>
+                        jQuery.noConflict();
                         $('#summernote').summernote({
                             placeholder: 'Hello stand alone ui',
                             tabsize: 2,
