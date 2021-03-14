@@ -1,0 +1,12 @@
+            {% csrf_token %}
+            {% if is_liked %}
+                <button class="btn btn-outline-secondary" id="likebtn" value="{{ interview.id }}">
+                <i class="fas fa-heart"></i>
+                <span id="count-{{ interview.id }}">{{ interview.total_likes }}</span>
+                </button>
+            {% else %}
+                <button class="btn btn-outline-secondary" id="likebtn" value="{{ interview.id }}">
+                <i class="far fa-heart"></i>
+                <span id="count-{{ interview.id }}">{{ interview.total_likes }}</span>
+                </button>
+            {% endif %}

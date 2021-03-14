@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block contents %}
+    <div class="container" style="margin-top:100px;">
+    <div class="row mt-5">
+        <div class="col-12">
+            <form method="POST" ㅊ enctype="multipart/form-data">
+                {% csrf_token %}
+                    <input class="form-control mb-2" id="title" placeholder="title" name="title" value="{{ interview.title }}" />
+                    <input class="form-control mb-2" id="interviewee" placeholder="interviewee" name="interviewee" value="{{ interview.interviewee }}" />
+                    <textarea name="content" id="summernote">
+                        {{ form.content.value|default_if_none:'' }}</textarea>
+                    <script>
+                        $('#summernote').summernote({
+                            placeholder: 'Hello stand alone ui',
+                            tabsize: 2,
+                            height: 600,
+                            toolbar: [
+                              ['style', ['style']],
+                              ['font', ['bold', 'underline', 'clear']],
+                              ['color', ['color']],
+                              ['para', ['ul', 'ol', 'paragraph']],
+                              ['table', ['table']],
+                              ['insert', ['link', 'picture', 'video']],
+                              ['view', ['fullscreen', 'codeview', 'help']]
+                            ],
+                        });
+                    </script>
+                    <button type="submit" class="btn btn-primary mt-3 mb-3" onclick="location.href='/interviews/write/'">수정하기</button>
+{#                <table>#}
+{#                    {{ form.as_table }}#}
+{#                </table>#}
+{#                <br>#}
+{#                <button type="submit" class=""btn btn-primary">수정하기</button>#}
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

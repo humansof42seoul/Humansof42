@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% block contents %}
+    <header class="masthead-md masthead-heading mb-5">
+        <div class="container-fluid d-flex align-items-center flex-column">
+            <h2 class="masthead-heading mb-2">{{ interview.title }}</h2>
+            <p class="masthead-subheading mb-0">{{ interview.interviewee }}의 이야기</p>
+            <p class="dttm">{{ interview.registered_dttm | date:"Y-m-d" }}</p>
+            <!-- edit button -->
+            {% if user.is_admin %}
+            <button class="btn btn-outline-danger" onclick="location.href='{% url 'interview_edit' interview.id %}'">edit</button>
+            {% else %}
+            {% endif %}
+        </div>
+    </header>
+
+    <article>
+    <div class="container mb-5" style="text-align:center;">
+        {% if image %}
+        <img class="img-fluid" src="{{ image.url }}" /><br>
+        {% endif %}
+    </div>
+    <div class="container col-lg-8 col-md-10 mx-auto">
+        {{ interview.content | safe }}
+    </div>
+    </article>
+
+    <!-- like button part -->
+    <div class="container mb-4">
+        <div class="form-group" id="like-section">
+            {% csrf_token %}
+            <button class="btn btn-outline-secondary" id="likebtn" value="{{ interview.id }}">
+            {% if is_liked %}
+                <i id="heart" class="fas fa-heart"></i>
+            {% else %}
+                <i id="heart" class="far fa-heart"></i>
+            {% endif %}
+            <span id="count-{{ interview.id }}">{{ interview.total_likes }}</span>
+            </button>
+        </div>
+        <script type="text/javascript">
+            $('#likebtn').click(function() {
+                let pk = $(this).attr('value');
+                $.ajax({
+                    type: 'POST',
+                    url: "{%  url 'like_interview' %}",
+                    data: {
+                        'pk': pk,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                    },
+                    datatype: "json",
+                    async: false,
+                    success: function(response){
+                        $('#count-'+pk).html(response.total_likes);
+                        if (response.is_liked == true)
+                        {
+                            $('#heart').attr("class", "fas fa-heart")
+                        }
+                        else
+                        {
+                            $('#heart').attr("class", "far fa-heart")
+                        }
+                    },
+                    error: function() {
+                        alert('공감 기능은 로그인 후 사용할 수 있습니다.');
+                    },
+                })
+            });
+        </script>
+    </div>
+    <hr>
+    
+    <!-- comment part -->
+    <div class="container mb-5">
+        <div class="mt-4 mb-2">
+            {%  if comments %}
+            {% for comment in comments.all %}
+                <div id="{{ comment.id }}">
+                    {% if comment.deleted %}
+                        <span>삭제된 댓글입니다.</span><hr>
+                    {% else %}
+                        <strong>{{ comment.writer }}</strong>
+                    {% endif %}
+                    <span style="float:right">{{ comment.registered_dttm | date:'m-d' }}</span>
+                    {% if comment.writer == request.user %}
+                        <a onclick="delete_comment('{{ comment.id }}');" style="float:right; margin-right:5px;">삭제</a>
+                        <script type="text/javascript">
+                        function delete_comment(value){
+                            let comment_id = value;
+                            let delete_warning = confirm('댓글을 삭제하시겠습니까?');
+                            if (delete_warning == true){
+                                $.ajax({
+                                    type: "POST",
+                                    url: "{%  url 'delete_comment' interview.id %}",
+                                    dataType: "json",
+                                    data: {
+                                        'comment_id': comment_id,
+                                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                                    },
+                                    success: function(response){
+                                        $('#'+response.comment_id).replaceWith('<span style="color:gray">삭제된 댓글입니다.</span>');
+                                    },
+                                    error: function() {
+                                        alert('본인 댓글이 아닙니다.');
+                                    },
+                                })
+                            }
+
+                        }
+                        </script>
+                    {% else %}
+                    {% endif %}
+                    <div style="white-space:pre-wrap; text-align:left;">{{ comment.content }}</div>
+                    <hr>
+                </div>
+            {% endfor %}
+            {% endif %}
+            <div id="comment_list"></div>
+        </div>
+            <div class="card-body">
+                {% csrf_token %}
+                <div class="form-group row">
+                    {% if user.is_active %}
+                    <textarea class="form-control" id="content_id" rows="2" placeholder="댓글을 입력하세요."></textarea>
+                    {% else %}
+                    <textarea class="form-control" id="content_id" rows="2" placeholder="로그인 후 댓글을 작성할 수 있습니다." disabled></textarea>
+                    {% endif %}
+                </div>
+                <div class="text-right">
+                    <button id="write_comment" class="btn btn-sm">댓글달기</button>
+                    <script type="text/javascript">
+                    $('#write_comment').click(function (){
+                        let content = $("#content_id").val();
+                        $.ajax({
+                            type: "POST",
+                            url: "{%  url 'write_comment' interview.id %}",
+                            dataType: "json",
+                            data: {
+                                'content': content,
+                                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                            },
+                            success : function(response){
+                                $('#comment_list').append(
+                                    '<div><div id='+response.comment_id+'><strong>'+response.writer+'</strong>'+
+                                    '<span style="float:right;">'+response.created+'</span>'+
+                                    '<a onclick="delete_comment('+response.comment_id+');" style="float:right; margin-right:5px;">삭제</a>'+
+                                    '<div><div style="white-space:pre-wrap; text-align:left;">'+response.content+
+                                    '<hr></div>'
+                                )
+                                $('#comment_writer').val("");
+                                $('#content_id').val("");
+                            },
+                            error: function() {
+                                if ($('#content_id').val() == ""){
+                                    alert('댓글을 입력해주세요.');
+                                }
+                            }
+                        })
+                    })
+                    </script>
+                </div>
+            </div>
+        </div>
+{% endblock %}
