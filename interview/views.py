@@ -60,7 +60,7 @@ def interview_detail(request, pk):
                                                                'comments': comments, 'comment_form': comment_form})
 
 
-@permission_required('admin')
+@permission_required('admin', raise_exception=True)
 def interview_write(request):
     # if not request.user.is_admin:
     #     return redirect('/interviews/')
@@ -82,7 +82,7 @@ def interview_write(request):
     return render(request, 'interview/interview_write.html', {'form': form})
 
 
-@permission_required('admin')
+@permission_required('admin', raise_exception=True)
 def interview_edit(request, pk):
     try:
         interview = Interview.objects.get(pk=pk)
