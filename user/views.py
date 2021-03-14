@@ -12,7 +12,7 @@ def log_in(request):
         ft_state = get_random_string(42)
         request.session['ft_state'] = ft_state
         ft_api_sign_in = "https://api.intra.42.fr/oauth/authorize"
-        redirect_uri = f"http://{request.get_host()}{reverse('ft_login')}"
+        redirect_uri = f"https://{request.get_host()}{reverse('ft_login')}"
         response_type = "code"
         scope = "public"
         ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
@@ -25,7 +25,7 @@ def ft_log_in(request):
             raise Http404("login error")
         ft_auth, ft_user_data = authenticate_ft_api(
             request.GET.get('code'),
-            f"http://{request.get_host()}{reverse('ft_login')}"
+            f"https://{request.get_host()}{reverse('ft_login')}"
         )
         if ft_auth is None:
             raise Http404("invalid user")
