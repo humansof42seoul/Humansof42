@@ -679,20 +679,13 @@ pre code {
   /* 1.5rem (origin) */
 }
 
-.col-lg-8 {
+.col-lg-8,
+.col-md-10 {
   position: relative;
   width: 100%;
   padding-right: 4rem;
   /* 1.5rem (origin) */
   padding-left: 4rem;
-  /* 1.5rem (origin) */
-}
-.col-md-10 {
-  position: relative;
-  width: 100%;
-  padding-right: 2rem;
-  /* 1.5rem (origin) */
-  padding-left: 2rem;
   /* 1.5rem (origin) */
 }
 
