@@ -60,7 +60,6 @@ def interview_detail(request, pk):
                                                                'comments': comments, 'comment_form': comment_form})
 
 
-@login_required
 @permission_required('admin')
 def interview_write(request):
     # if not request.user.is_admin:
@@ -83,7 +82,6 @@ def interview_write(request):
     return render(request, 'interview/interview_write.html', {'form': form})
 
 
-@login_required
 @permission_required('admin')
 def interview_edit(request, pk):
     try:
