@@ -61,7 +61,7 @@ def interview_detail(request, pk):
 
 
 @login_required
-@permission_required('user.is_staff')
+@permission_required('admin')
 def interview_write(request):
     # if not request.user.is_admin:
     #     return redirect('/interviews/')
@@ -84,7 +84,7 @@ def interview_write(request):
 
 
 @login_required
-@permission_required('user.is_staff')
+@permission_required('admin')
 def interview_edit(request, pk):
     try:
         interview = Interview.objects.get(pk=pk)
