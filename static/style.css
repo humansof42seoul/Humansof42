@@ -256,6 +256,12 @@ a:hover {
   cursor: pointer;
 }
 
+.comment-btn{
+  margin-top: 3px;
+  text-align: right;
+  width: 100%;
+}
+
 a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
