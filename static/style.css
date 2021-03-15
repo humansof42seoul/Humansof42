@@ -165,19 +165,6 @@ header.banner {
   font-size: 1.5rem;
 }
 
-/* interview detail page */
-a.delete-btn{
-  float: right;
-  margin-right: 5px;
-  font-size: 0.875rem;
-}
-a.delete-btn{
-  float: right;
-  margin-right: 5px;
-  font-size: 0.875rem;
-  text-decoration: underline;
-}
-
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
@@ -244,12 +231,25 @@ sup {
 }
 
 a {
-  color: #1abc9c;
+  color: #b3b3b3;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #117964;
+  color: #b3b3b3;
+  text-decoration: underline;
+}
+
+/* interview detail page */
+.delete-btn{
+  float: right;
+  margin-right: 5px;
+  font-size: 0.875rem;
+}
+.delete-btn:hover{
+  float: right;
+  margin-right: 5px;
+  font-size: 0.875rem;
   text-decoration: underline;
 }
 
