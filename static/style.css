@@ -166,12 +166,12 @@ header.banner {
 }
 
 /* interview detail page */
-.delete-btn{
+a.delete-btn{
   float: right;
   margin-right: 5px;
   font-size: 0.875rem;
 }
-.delete-btn{
+a.delete-btn{
   float: right;
   margin-right: 5px;
   font-size: 0.875rem;
