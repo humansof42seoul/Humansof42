@@ -126,40 +126,44 @@
                     {% else %}
                     <textarea class="form-control" id="content_id" rows="2" placeholder="로그인 후 댓글을 작성할 수 있습니다." disabled></textarea>
                     {% endif %}
-                </div>
-                <div class="text-right">
-                    <button id="write_comment" class="btn btn-sm">댓글달기</button>
-                    <script type="text/javascript">
-                    $('#write_comment').click(function (){
-                        let content = $("#content_id").val();
-                        $.ajax({
-                            type: "POST",
-                            url: "{%  url 'write_comment' interview.id %}",
-                            dataType: "json",
-                            data: {
-                                'content': content,
-                                'csrfmiddlewaretoken': '{{ csrf_token }}',
-                            },
-                            success : function(response){
-                                $('#comment_list').append(
-                                    '<div><div id='+response.comment_id+'><strong>'+response.writer+'</strong>'+
-                                    '<span style="float:right;">'+response.created+'</span>'+
-                                    '<a onclick="delete_comment('+response.comment_id+');" class="delete-btn">삭제</a>'+
-                                    '<div><div style="white-space:pre-wrap; text-align:left;">'+response.content+
-                                    '<hr></div>'
-                                )
-                                $('#comment_writer').val("");
-                                $('#content_id').val("");
-                            },
-                            error: function() {
-                                if ($('#content_id').val() == ""){
-                                    alert('댓글을 입력해주세요.');
+
+                    <div style="float:right;width:100%;">s
+                        <button id="write_comment" class="btn btn-sm">댓글달기</button>
+                        <script type="text/javascript">
+                        $('#write_comment').click(function (){
+                            let content = $("#content_id").val();
+                            $.ajax({
+                                type: "POST",
+                                url: "{%  url 'write_comment' interview.id %}",
+                                dataType: "json",
+                                data: {
+                                    'content': content,
+                                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                                },
+                                success : function(response){
+                                    $('#comment_list').append(
+                                        '<div><div id='+response.comment_id+'><strong>'+response.writer+'</strong>'+
+                                        '<span style="float:right;">'+response.created+'</span>'+
+                                        '<a onclick="delete_comment('+response.comment_id+');" class="delete-btn">삭제</a>'+
+                                        '<div><div style="white-space:pre-wrap; text-align:left;">'+response.content+
+                                        '<hr></div>'
+                                    )
+                                    $('#comment_writer').val("");
+                                    $('#content_id').val("");
+                                },
+                                error: function() {
+                                    if ($('#content_id').val() == ""){
+                                        alert('댓글을 입력해주세요.');
+                                    }
                                 }
-                            }
+                            })
                         })
-                    })
-                    </script>
+                        </script>
+                    </div>
+
+
                 </div>
+
             </div>
         </div>
 {% endblock %}
