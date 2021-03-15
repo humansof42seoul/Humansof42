@@ -82,7 +82,7 @@
                     {% endif %}
                     <span style="float:right">{{ comment.registered_dttm | date:'m-d' }}</span>
                     {% if comment.writer == request.user %}
-                        <a onclick="delete_comment('{{ comment.id }}');" style="float:right; margin-right:5px;">삭제</a>
+                        <a onclick="delete_comment('{{ comment.id }}');" class="delete-btn">삭제</a>
                         <script type="text/javascript">
                         function delete_comment(value){
                             let comment_id = value;
@@ -142,7 +142,7 @@
                                 $('#comment_list').append(
                                     '<div><div id='+response.comment_id+'><strong>'+response.writer+'</strong>'+
                                     '<span style="float:right;">'+response.created+'</span>'+
-                                    '<a onclick="delete_comment('+response.comment_id+');" style="float:right; margin-right:5px;">삭제</a>'+
+                                    '<a onclick="delete_comment('+response.comment_id+');" class="delete-btn">삭제</a>'+
                                     '<div><div style="white-space:pre-wrap; text-align:left;">'+response.content+
                                     '<hr></div>'
                                 )
