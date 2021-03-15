@@ -12,30 +12,6 @@ from .models import Interview, Comment
 from .forms import InterviewForm, CommentForm
 
 
-# CBV
-# class InterviewListAPI(generics.GenericAPIView, mixins.ListModelMixin):
-#     serializer_class = InterviewSerializer
-#
-#     # 어떤 데이터를 가지고 올지
-#     def get_queryset(self):
-#         return Interview.objects.all().order_by('id')
-#
-#     def get(self, request, *args, **kargs):
-#         return self.list(request, *args, **kargs)
-#
-#
-# class InterviewDetailAPI(generics.GenericAPIView, mixins.RetrieveModelMixin):
-#     # 상세 보기를 위산한 믹스
-#     serializer_class = InterviewSerializer
-#
-#     # 전부를 가지고 옴
-#     def get_queryset(self):
-#         return Interview.objects.all().order_by('id')
-#
-#     # 쿼리셋에서 pk로 선택해서 줄 것임
-#     def get(self, request, *args, **kargs):
-#         return self.retrieve(request, *args, **kargs)
-
 def home(request):
     return render(request, 'interview/index.html')
 
@@ -62,18 +38,13 @@ def interview_detail(request, pk):
 
 @permission_required('admin', raise_exception=True)
 def interview_write(request):
-    # if not request.user.is_admin:
-    #     return redirect('/interviews/')
     if request.method == 'POST':
         form = InterviewForm(request.POST)
         if form.is_valid():
-            # user_id = request.session.get('user')
-            # h42user = H42user.objects.get(pk=user_id)
             interview = Interview()
             interview.title = form.cleaned_data['title']
             interview.interviewee = form.cleaned_data['interviewee']
             interview.content = form.cleaned_data['content']
-            # interview.writer = h42user
             interview.image = request.FILES['image']
             interview.save()
             return redirect('/interviews/')
