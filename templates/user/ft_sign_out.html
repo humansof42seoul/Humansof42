@@ -4,7 +4,7 @@
     <header class="masthead bg-basic text-secondary text-center">
         <form class="mb-0" id="temp-form-logout" action="{% url 'logout' %}" method="POST">
             {% csrf_token %}
-            <a class="nav-link" onclick="document.getElementById('temp-form-logout').submit();">로그아웃</a>
+            <a class="btn btn-secondary" onclick="document.getElementById('temp-form-logout').submit();">로그아웃</a>
         </form>
     </header>
 {% endblock %}
