@@ -141,7 +141,7 @@
                             success : function(response){
                                 $('#comment_list').append(
                                     '<div><div id='+response.comment_id+'><strong>'+response.writer+'</strong>'+
-                                    '<span style="float:right;">'+response.comment_id+'</span>'+
+                                    '<span style="float:right;">'+response.created+'</span>'+
                                     '<a onclick="delete_comment('+response.comment_id+');" style="float:right; margin-right:5px;">삭제</a>'+
                                     '<div><div style="white-space:pre-wrap; text-align:left;">'+response.content+
                                     '<hr></div>'
