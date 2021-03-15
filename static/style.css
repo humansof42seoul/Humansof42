@@ -243,16 +243,15 @@ a:hover {
   color: #757575;
   float: right;
   margin-right: 5px;
-  vertical-align: middle;
   font-size: 0.875rem;
 }
 .delete-btn:hover{
   color: #757575;
   float: right;
   margin-right: 5px;
-  vertical-align: middle;
   font-size: 0.875rem;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 a:not([href]):not([class]) {

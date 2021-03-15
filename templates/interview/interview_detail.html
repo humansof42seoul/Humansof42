@@ -80,6 +80,7 @@
                     {% else %}
                         <strong>{{ comment.writer }}</strong>
                     {% endif %}
+                <div>
                     <span style="float:right">{{ comment.registered_dttm | date:'m-d' }}</span>
                     {% if comment.writer == request.user %}
                         <a onclick="delete_comment('{{ comment.id }}');" class="delete-btn">삭제</a>
@@ -109,6 +110,7 @@
                         </script>
                     {% else %}
                     {% endif %}
+                </div>
                     <div style="white-space:pre-wrap; text-align:left;">{{ comment.content }}</div>
                     <hr>
                 </div>
