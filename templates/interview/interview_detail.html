@@ -14,14 +14,24 @@
     </header>
 
     <article>
-    <div class="container mb-5" style="text-align:center;">
-        {% if image %}
-        <img class="img-fluid" src="{{ image.url }}" /><br>
-        {% endif %}
+    <div class="post-page-post">
+        <div class="post-image">
+            {% if image %}
+            <img class="img-fluid" src="{{ image.url }}"/><br>
+            {% endif %}
+        </div>
+        <div class="post-text">
+            {{ interview.content | safe }}
+        </div>
     </div>
-    <div class="container col-lg-8 col-md-10 mx-auto">
-        {{ interview.content | safe }}
-    </div>
+{#    <div class="container mb-5" style="text-align:center;">#}
+{#        {% if image %}#}
+{#        <img class="img-fluid" src="{{ image.url }}" /><br>#}
+{#        {% endif %}#}
+{#    </div>#}
+{#    <div class="container col-lg-8 col-md-10 mx-auto">#}
+{#        {{ interview.content | safe }}#}
+{#    </div>#}
     </article>
 
     <!-- like button part -->

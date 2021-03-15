@@ -165,6 +165,70 @@ header.banner {
   font-size: 1.5rem;
 }
 
+/* interview detail page */
+.post-container {
+  margin: auto;
+  padding-bottom: 180px; }
+
+.post-container:empty {
+  display: none; }
+
+.load-more-button {
+  position: relative;
+  width: 250px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 44px; }
+  .load-more-button.bottom-spacing {
+    margin-bottom: 60px; }
+
+.post {
+  width: 440px;
+  display: inline-block;
+  margin-bottom: 30px;
+  cursor: pointer; }
+  .post .post-image {
+    overflow: hidden; }
+    .post .post-image img {
+      image-rendering: optimizeQuality;
+      transition: transform 8s ease-out;
+      transform: scale(1); }
+  .post .post-image,
+  .post img {
+    width: 100%; }
+  .post .post-text {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+    font-family: 'Merriweather';
+    font-size: 16px;
+    line-height: 28px;
+    position: relative;
+    overflow: hidden; }
+    .post .post-text.no-fade:before {
+      content: none; }
+  .post:hover .post-image img {
+    transform: scale(1.05); }
+  .post .post-image, .post .post-text, .post .backfill {
+    transition: opacity 300ms ease; }
+  .post .post-image, .post .post-text, .post .series-tag {
+    opacity: 0;
+    z-index: 1; }
+  .post.image-loaded .post-image, .post.image-loaded .post-text, .post.image-loaded .series-tag {
+    opacity: 1; }
+  .post.image-loaded .backfill {
+    opacity: 0; }
+  .post .backfill {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.05);
+    opacity: 1;
+    z-index: 0; }
 
 
 abbr[title],
