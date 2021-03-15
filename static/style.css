@@ -231,24 +231,26 @@ sup {
 }
 
 a {
-  color: #b3b3b3;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #b3b3b3;
   text-decoration: underline;
 }
 
 /* interview detail page */
 .delete-btn{
+  color: #757575;
   float: right;
   margin-right: 5px;
+  vertical-align: middle;
   font-size: 0.875rem;
 }
 .delete-btn:hover{
+  color: #757575;
   float: right;
   margin-right: 5px;
+  vertical-align: middle;
   font-size: 0.875rem;
   text-decoration: underline;
 }
