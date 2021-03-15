@@ -75,12 +75,12 @@
             {%  if comments %}
             {% for comment in comments.all %}
                 <div id="{{ comment.id }}">
+                <div style="vertical-align: middle;">
                     {% if comment.deleted %}
                         <span>삭제된 댓글입니다.</span><hr>
                     {% else %}
                         <strong>{{ comment.writer }}</strong>
                     {% endif %}
-                <div>
                     <span style="float:right">{{ comment.registered_dttm | date:'m-d' }}</span>
                     {% if comment.writer == request.user %}
                         <a onclick="delete_comment('{{ comment.id }}');" class="delete-btn">삭제</a>
