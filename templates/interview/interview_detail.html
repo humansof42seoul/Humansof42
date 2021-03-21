@@ -134,7 +134,9 @@
                     {% endif %}
 
                     <div class="comment-btn">
+                        {% if user.is_active %}
                         <button id="write_comment" class="btn btn-sm">댓글달기</button>
+                        {% endif %}
                         <script type="text/javascript">
                         $('#write_comment').click(function (){
                             let content = $("#content_id").val();
