@@ -66,6 +66,8 @@ def interview_edit(request, pk):
         if form.is_valid():
             interview.title = form.cleaned_data['title']
             interview.interviewee = form.cleaned_data['interviewee']
+            interview.interviewer = form.cleaned_data['interviewer']
+            interview.photographer = form.cleaned_data['photographer']
             interview.content = form.cleaned_data['content']
             interview.save()
             return redirect('/interviews/' + str(pk))
