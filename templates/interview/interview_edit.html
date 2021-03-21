@@ -8,6 +8,8 @@
                 {% csrf_token %}
                     <input class="form-control mb-2" id="title" placeholder="title" name="title" value="{{ interview.title }}" />
                     <input class="form-control mb-2" id="interviewee" placeholder="interviewee" name="interviewee" value="{{ interview.interviewee }}" />
+                    <input class="form-control mb-2" id="interviewer" placeholder="interviewer" name="interviewer" value="{{ interview.interviewer }}" />
+                    <input class="form-control mb-2" id="photographer" placeholder="photographer" name="photographer" value="{{ interview.photographer }}" />
                     <textarea name="content" id="summernote">
                         {{ form.content.value|default_if_none:'' }}</textarea>
                     <script>

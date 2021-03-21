@@ -9,6 +9,8 @@
                 {% csrf_token %}
                     <input class="form-control mb-2" id="title" placeholder="title" name="title" />
                     <input class="form-control mb-2" id="interviewee" placeholder="interviewee" name="interviewee" />
+                    <input class="form-control mb-2" id="interviewer" placeholder="interviewer" name="interviewer" />
+                    <input class="form-control mb-2" id="photographer" placeholder="photographer" name="photographer" />
                     <input type="file" id="image" placeholder="image" name="image" />
                     <textarea name="content" id="summernote">
                         {{ form.content.value|default_if_none:'' }}</textarea>

@@ -22,6 +22,10 @@
     <div class="container col-lg-8 col-md-10 mx-auto" style="max-width:960px;">
         {{ interview.content | safe }}
     </div>
+    <div class="container text-right">
+        <p>interviewer @{{ interview.interviewer }}</p>
+        <p>photographer @{{ interview.photographer }}</p>
+    </div>
     </article>
 
     <!-- like button part -->

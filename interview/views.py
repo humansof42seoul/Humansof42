@@ -44,6 +44,8 @@ def interview_write(request):
             interview = Interview()
             interview.title = form.cleaned_data['title']
             interview.interviewee = form.cleaned_data['interviewee']
+            interview.interviewer = form.cleaned_data['interviewer']
+            interview.photographer = form.cleaned_data['photographer']
             interview.content = form.cleaned_data['content']
             interview.image = request.FILES['image']
             interview.save()

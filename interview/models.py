@@ -7,8 +7,9 @@ from user.models import User
 class Interview(models.Model):
     title = models.CharField(max_length=128, verbose_name='제목')
     interviewee = models.CharField(max_length=128, verbose_name='인터뷰 대상자')
+    interviewer = models.CharField(max_length=128, verbose_name='인터뷰어')
+    photographer = models.CharField(max_length=128, verbose_name='포토그래퍼')
     content = models.TextField(verbose_name='내용')
-    # writer = models.ForeignKey('users.H42user', on_delete=models.CASCADE, verbose_name='작성자')
     registered_dttm = models.DateTimeField(auto_now_add=True, verbose_name='등록시간')
     likes = models.ManyToManyField(User, related_name="likes", blank=True, verbose_name='공감수')
     views = models.PositiveIntegerField(default=0, verbose_name='조회수')
