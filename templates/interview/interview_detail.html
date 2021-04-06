@@ -3,7 +3,7 @@
     <header class="masthead-md masthead-heading mb-5">
         <div class="container-fluid d-flex align-items-center flex-column">
             <h2 class="masthead-heading mb-2">{{ interview.title }}</h2>
-            <p class="masthead-subheading mb-0" id="interviewee">{{ interview.interviewee }}의 이야기</p>
+            <p class="masthead-subheading mb-0" id="title">{{ interview.interviewee }}의 이야기</p>
             <p class="dttm">{{ interview.registered_dttm | date:"Y-m-d" }}</p>
             <!-- edit button -->
             {% if user.is_admin %}
@@ -12,10 +12,7 @@
             {% endif %}
         </div>
         <script>
-            //console.log(document.getElementById('interviewee').val);
-            console.log(document.getElementById('interviewee').innerText);
-
-            document.title = document.getElementById('interviewee').innerText;
+            document.title = document.getElementById('title').innerText;
         </script>
     </header>
 
