@@ -129,6 +129,8 @@ header.banner {
 
 .member {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -138,6 +140,7 @@ header.banner {
   display: block;
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-bottom: 45px;
   overflow: hidden;
 }
 
