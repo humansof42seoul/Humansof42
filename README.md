@@ -11,6 +11,7 @@
 - Oauth 2.0
 - Summernote
 - GCP Compute Engine
+- nginx, gunicorn
 
 
 ### Features
