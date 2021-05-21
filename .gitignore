@@ -1,1 +1,6 @@
 .DS_Store
+secret_into_file.json
+h42.env
+migrations
+__pycache__
+db.sqlite3
