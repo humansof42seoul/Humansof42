@@ -1,4 +1,4 @@
-from config import settings
+from config import prod
 from typing import Dict
 import requests
 import string
