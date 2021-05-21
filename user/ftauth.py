@@ -12,8 +12,8 @@ class FtAuth:
     ft_api_url = "https://api.intra.42.fr/v2/"
 
     def __init__(self):
-        self.ft_uid_key = settings.FT_UID_KEY
-        self.ft_secret_key = settings.FT_SECRET_KEY
+        self.ft_uid_key = prod.FT_UID_KEY
+        self.ft_secret_key = prod.FT_SECRET_KEY
 
     def set_access_token(self, code, redirect_uri):
         oauth_data: Dict[str, str] = {
