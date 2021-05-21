@@ -146,3 +146,5 @@ FT_SECRET_KEY = os.environ.get('FT_SECRET_KEY', get_secret("FT_SECRET_KEY"))
 AUTH_USER_MODEL = 'user.User'
 
 LOGIN_URL = '/login/'
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
