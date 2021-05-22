@@ -35,7 +35,7 @@
 
     <!-- like button part -->
     <div class="container mb-4">
-        <div class="form-group" id="like-section">
+        <span class="form-group" id="like-section" styple="float:left;">
             {% csrf_token %}
             <button class="btn btn-outline-secondary" id="likebtn" value="{{ interview.id }}">
             {% if is_liked %}
@@ -45,7 +45,7 @@
             {% endif %}
             <span id="count-{{ interview.id }}">{{ interview.total_likes }}</span>
             </button>
-        </div>
+        </span>
         <script type="text/javascript">
             $('#likebtn').click(function() {
                 let pk = $(this).attr('value');
@@ -74,6 +74,35 @@
                     },
                 })
             });
+        </script>
+        <span style="float: right;">
+            <a href="javascript:sendLinkKakao()" id="kakao-link-btn" title="share to kakao">
+                <img src="{{ '../../static/img/kakao-talk.png' }}" width=30 alt="kakao">
+            </a>
+        </span>
+        <script>
+            function sendLinkKakao() {
+                Kakao.Link.sendDefault({
+                    objectType: 'feed',
+                    content: {
+                        title: '{{ interview.title }}',
+                        description: '{{ interview.contentc|truncatewords:15 }}',
+                        imageUrl: '{{ image.url }}',
+                        link: {
+                            mobileWebUrl: '{{ request.build_absolute_uri }}',
+                            webUrl: '{{ request.build_absolute_uri }}'
+                        }
+                    },
+                    buttons: [{
+                        title: '링크 열기',
+                        link: {
+                            mobileWebUrl: '{{ request.build_absolute_uri }}',
+                            webUrl: '{{ request.build_absolute_uri }}'
+                        }
+                    }
+                    ]
+                });
+            }
         </script>
     </div>
     <hr>
