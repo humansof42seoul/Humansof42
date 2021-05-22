@@ -87,7 +87,7 @@
                     content: {
                         title: '{{ interview.title }}',
                         description: '{{ interview.interviewee }}의 이야기',
-                        imageUrl: '{{ request.build_absolute_uri(image.url) }}',
+                        imageUrl: '{{ interview.image.url }}',
                         link: {
                             mobileWebUrl: '{{ request.build_absolute_uri }}',
                             webUrl: '{{ request.build_absolute_uri }}'
