@@ -34,8 +34,8 @@
     </article>
 
     <!-- like button part -->
-    <div class="container mb-4">
-        <span class="form-group" id="like-section" styple="float:left;">
+    <div class="container mb-4" style="max-width:960px;">
+        <span class="form-group" id="like-section" style="float:left;">
             {% csrf_token %}
             <button class="btn btn-outline-secondary" id="likebtn" value="{{ interview.id }}">
             {% if is_liked %}
@@ -86,8 +86,8 @@
                     objectType: 'feed',
                     content: {
                         title: '{{ interview.title }}',
-                        description: '{{ interview.contentc|truncatewords:15 }}',
-                        imageUrl: '{{ image.url }}',
+                        description: '{{ interview.interviewee }}의 이야기',
+                        imageUrl: '{{ image.get_absolute_url }}',
                         link: {
                             mobileWebUrl: '{{ request.build_absolute_uri }}',
                             webUrl: '{{ request.build_absolute_uri }}'
