@@ -35,7 +35,7 @@
 
     <!-- like button part -->
     <div class="container mb-4" style="max-width:960px;">
-        <span class="form-group" id="like-section" style="float:left;">
+        <span class="form-group" id="like-section">
             {% csrf_token %}
             <button class="btn btn-outline-secondary" id="likebtn" value="{{ interview.id }}">
             {% if is_liked %}
