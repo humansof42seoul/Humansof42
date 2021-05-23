@@ -26,3 +26,5 @@
  
 - Like
   - 공감 버튼(only login user)
+
+- 카카오톡으로 공유하기
