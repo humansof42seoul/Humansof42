@@ -25,7 +25,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = os.environ["H42_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'localhost', 'humansof42.com', 'www.humansof42.com', '34.64.112.133', ]
 
