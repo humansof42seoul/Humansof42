@@ -62,3 +62,6 @@ def log_out(request):
     if request.method == "POST":
         logout(request)
         return redirect('main')
+
+def get_mypage(request):
+    return render(request, 'user/mypage.html', {'user': request.user})

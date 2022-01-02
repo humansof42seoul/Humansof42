@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from interview.views import interview_list, about
 from user.views import log_out
+from user.views import get_mypage
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('user.urls')),
     path('logout/', log_out, name="logout"),
+    path('mypage/', get_mypage, name="mypage"),
     path('interviews/', include('interview.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
