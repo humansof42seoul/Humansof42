@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'imagekit',
     'sorl.thumbnail',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

@@ -1,11 +1,18 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, reverse, redirect
 from rest_framework.views import APIView
 from .models import User,UserToken
+from .forms import CustomUserChangeForm
 from .ftauth import get_random_string, authenticate_ft_api
 from django.conf import settings
 from django.http import Http404
 
+@login_required
+def update(request):
+    user_change_form = UserChangeForm(instance = request.user)
+    return render(request, 'user/mypage.html', {'user_change_form': user_change_form})
 
 def log_in(request):
     if request.method == 'GET':
@@ -64,4 +71,6 @@ def log_out(request):
         return redirect('main')
 
 def get_mypage(request):
-    return render(request, 'user/mypage.html', {'user': request.user})
+    email_form = CustomUserChangeForm(instance = request.user)
+    password_form = PasswordChangeForm(request.user)
+    return render(request, 'user/mypage.html', {'email_form': email_form, 'password_form': password_form})

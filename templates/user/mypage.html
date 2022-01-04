@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block contents %}
-    <header class="masthead bg-basic text-secondary text-center">
+    <div class="masthead text-secondary container col-lg-8 col-md-10 mx-auto" style="max-width:960px;">
     <h2>{{ user.login }}</h2>
-    </header>
+    <form method="post">
+        {% csrf_token %}
+
+        {% bootstrap_form email_form %}
+        {% bootstrap_form password_form %}
+    </form>
+    </div>
 {% endblock %}
