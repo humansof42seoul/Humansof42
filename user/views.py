@@ -1,18 +1,46 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, reverse, redirect
 from rest_framework.views import APIView
 from .models import User,UserToken
-from .forms import CustomUserChangeForm
+from .forms import EmailChangeForm
 from .ftauth import get_random_string, authenticate_ft_api
 from django.conf import settings
 from django.http import Http404
 
 @login_required
-def update(request):
-    user_change_form = UserChangeForm(instance = request.user)
-    return render(request, 'user/mypage.html', {'user_change_form': user_change_form})
+def change_email(request):
+    if request.method == 'POST':
+        form = EmailChangeForm(request.POST, request.user)
+        if form.is_valid():
+            email = request.POST.get('email')
+            user = request.user
+            user.email = email
+            user.save()
+            messages.success(request, 'Your email was successfully updated!')
+            return redirect('/user/mypage')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = EmailChangeForm(request.user)
+    return render(request, 'user/mypage.html', {'email_form': form})
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+        return render(request, 'user/mypage.html', {
+            'password_form': form
+        })
 
 def log_in(request):
     if request.method == 'GET':
@@ -71,6 +99,6 @@ def log_out(request):
         return redirect('main')
 
 def get_mypage(request):
-    email_form = CustomUserChangeForm(instance = request.user)
+    email_form = EmailChangeForm(instance = request.user)
     password_form = PasswordChangeForm(request.user)
     return render(request, 'user/mypage.html', {'email_form': email_form, 'password_form': password_form})
