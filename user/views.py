@@ -12,7 +12,6 @@ from django.http import Http404
 
 @login_required
 def change_email(request):
-    password_form = PasswordChangeForm(request.user)
     if request.method == 'POST':
         form = EmailChangeForm(request.POST, request.user)
         if form.is_valid():
@@ -24,9 +23,6 @@ def change_email(request):
             return redirect('/user/mypage')
         else:
             messages.error(request, 'Please correct the error below.')
-            return redirect('/user/mypage')
-    else:
-        form = EmailChangeForm(request.user)
     return redirect('/user/mypage')
 
 @login_required
@@ -37,12 +33,12 @@ def change_password(request):
             user = form.save()
             update_session_auth_hash(request, user)
             messages.success(request, 'Your password was successfully updated!')
+            print("email change success")
             return redirect('/')
         else:
-            messages.error(request, 'Please correct the error below.')
-        return render(request, 'user/mypage.html', {
-            'password_form': form
-        })
+            email_form = EmailChangeForm(instance = request.user)
+            return render(request, 'user/mypage.html', {'email_form': email_form, 'password_form': form})
+    return redirect('/user/mypage')
 
 def log_in(request):
     if request.method == 'GET':

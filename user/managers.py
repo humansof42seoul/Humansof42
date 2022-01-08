@@ -1,7 +1,6 @@
 from django.contrib.auth.models import BaseUserManager
 from .ftauth import get_random_string
 
-
 class MyUserManager(BaseUserManager):
     def create_user(self, id, email, login):
         user = self.model(
