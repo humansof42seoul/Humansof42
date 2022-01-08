@@ -8,7 +8,7 @@
         <p>{{ error_message }}</p>
         {% else %}
         {% endif %}
-    <form method="post" action="{% url 'change_email' %}">
+    <form method="POST" action="{% url 'change_email' %}">
         {% csrf_token %}
         {% bootstrap_form email_form %}
         <button type="submit">이메일 수정하기</button>

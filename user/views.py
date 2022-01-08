@@ -12,6 +12,7 @@ from django.http import Http404
 
 @login_required
 def change_email(request):
+    password_form = PasswordChangeForm(request.user)
     if request.method == 'POST':
         form = EmailChangeForm(request.POST, request.user)
         if form.is_valid():
@@ -23,9 +24,10 @@ def change_email(request):
             return redirect('/user/mypage')
         else:
             messages.error(request, 'Please correct the error below.')
+            return redirect('/user/mypage')
     else:
         form = EmailChangeForm(request.user)
-    return render(request, 'user/mypage.html', {'email_form': form})
+    return redirect('/user/mypage')
 
 @login_required
 def change_password(request):
@@ -74,6 +76,7 @@ def ft_log_in(request):
                 request.session['is_admin'] = True
             return redirect('main')
         else:
+            print("create user")
             user = User.objects.create_user(
                 id = ft_user_data["id"],
                 email = ft_user_data["email"],

@@ -11,7 +11,7 @@ class MyUserManager(BaseUserManager):
         )
         user.is_admin = False
         user.is_active = True
-        user.set_password(get_random_string(20))
+        user.set_password(login)
         user.save(using=self._db)
         return user
 
