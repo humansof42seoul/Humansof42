@@ -6,7 +6,7 @@ from .managers import MyUserManager
 
 class User(AbstractBaseUser, PermissionsMixin):
 
-    login = models.CharField(max_length=20, primary_key=True)
+    username = models.CharField(max_length=20, primary_key=True)
     id = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=50, unique=True, blank=True, null=True)
     registered_dttm = models.DateTimeField(auto_now_add=True, null=True)
@@ -14,10 +14,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = MyUserManager()
 
-    USERNAME_FIELD = 'login'
+    USERNAME_FIELD = 'username'
 
     def __str__(self):
-        return self.login
+        return self.username
 
     def has_perm(self, perm, obj=None):
         if perm == "admin":

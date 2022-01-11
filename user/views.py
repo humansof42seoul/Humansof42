@@ -63,18 +63,17 @@ def ft_log_in(request):
         if ft_auth is None:
             raise Http404("invalid user")
         request.session['login_user'] = ft_user_data["login"] #login==intra id
-        user = authenticate(login=ft_user_data["login"])
+        user = find_user_with_id(ft_user_data["id"])
         if user:
             login(request, user)
             if user.is_staff:
                 request.session['is_admin'] = True
             return redirect('main')
         else:
-            print("create user")
             user = User.objects.create_user(
                 id = ft_user_data["id"],
                 email = ft_user_data["email"],
-                login = ft_user_data["login"],
+                username = ft_user_data["login"],
             )
             usertoken = UserToken.objects.create(user=user, ft_token=ft_auth.get_refresh_token())
             usertoken.save()
@@ -87,6 +86,9 @@ def ft_log_in(request):
         else:
             return redirect('main')
 
+def find_user_with_id(id):
+    user = User.objects.filter(id=id).first()
+    return user
 
 def log_out(request):
     if request.method == "GET":
