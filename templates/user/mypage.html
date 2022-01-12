@@ -13,9 +13,11 @@
         {% bootstrap_form email_form %}
         <button type="submit">이메일 수정하기</button>
     </form>
+    <br>
     <form method="post" action="{% url 'change_password' %}">
         {% csrf_token %}
         {% bootstrap_form password_form %}
+        <p style="color: red; font-size: small;">* 초기 패스워드는 42 로그인 아이디입니다.</p>
         <button type="submit">비밀번호 수정하기</button>
     </form>
     </div>
