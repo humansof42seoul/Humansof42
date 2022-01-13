@@ -25,7 +25,7 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = os.environ["H42_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*', 'localhost', 'humansof42.com', 'www.humansof42.com', '34.64.112.133', ]
 
@@ -150,7 +150,7 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = None
 #
 # FILE_UPLOAD_MAX_MEMORY_SIZE = None
 
-SECRET_INTO_FILE = os.path.join(BASE_DIR, 'config', 'secret_into_file.json')
+SECRET_INTO_FILE = os.path.join(BASE_DIR, 'config', 'secret_into_file_dev.json')
 
 with open(SECRET_INTO_FILE) as f:
     secrets = json.loads(f.read())
