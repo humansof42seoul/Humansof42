@@ -1,22 +1,22 @@
 from django.contrib.auth.models import BaseUserManager
 from .ftauth import get_random_string
 
-class MyUserManager(BaseUserManager):
-    def create_user(self, id, email, username):
+class MyUserManager(BaseUserManager)
+    def create_user(self, id, email, login):
         user = self.model(
             id=id,
             email=email,
-            username=username,
+            login=login,
         )
         user.is_admin = False
         user.is_active = True
-        user.set_password(username)
+        user.set_password(login)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, password):
+    def create_superuser(self, login, password):
         user = self.model(
-            username=username,
+            login=login,
         )
         user.set_password(password)
         user.is_admin = True
