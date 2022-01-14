@@ -52,7 +52,7 @@ def log_in(request):
         email = request.POST['email']
         password = request.POST['password']
         user = find_user_with_email(email)
-        user = authenticate(username = user.username, password = password)
+        user = authenticate(login = user.login, password = password)
         if user:
             login(request, user)
             return redirect('main')
@@ -81,7 +81,7 @@ def ft_log_in(request):
             user = User.objects.create_user(
                 id = ft_user_data["id"],
                 email = ft_user_data["email"],
-                username = ft_user_data["login"],
+                login = ft_user_data["login"],
             )
             usertoken = UserToken.objects.create(user=user, ft_token=ft_auth.get_refresh_token())
             usertoken.save()
