@@ -25,22 +25,41 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = os.environ["H42_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-# Log setting
+WHITENOISE_AUTOREFRESH = True
+
+# mail setting
+ADMINS = [('Yeji Choi', 'saluthuge@gmail.com'),]
+
+EMAIL_USE_TLS = True
+
+EMAIL_PORT = 587
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'humansof42@gmail.com'
+
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+
+
+#log setting
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console': {
+        'file': {
             'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
+            'class': 'logging.FileHandler',
+	    'filename': os.path.join(BASE_DIR, 'debug.log'),
         }
     },
     'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
+        'user': {
+            'handlers': ['file'],
             'level': 'DEBUG',
+	    'propagete': True,
         },
     }
 }
@@ -152,6 +171,7 @@ STATICFILES_DIRS = [
 	STATIC_DIR,
 ]
 STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
