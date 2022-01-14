@@ -25,7 +25,25 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = os.environ["H42_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+# Log setting
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    }
+}
 
 ALLOWED_HOSTS = ['*', 'localhost', 'humansof42.com', 'www.humansof42.com', '34.64.112.133', ]
 
@@ -170,3 +188,4 @@ FT_SECRET_KEY = os.environ.get('FT_SECRET_KEY', get_secret("FT_SECRET_KEY"))
 AUTH_USER_MODEL = 'user.User'
 
 LOGIN_URL = '/login/'
+
