@@ -38,7 +38,7 @@ def change_password(request):
     return render(request, 'user/mypage.html', {'email_form': email_form, 'password_form': form})
 
 def log_in(request):
-    return render(request, 'user/sign_in.html')
+    return redirect('main')
     # if request.method == 'GET':
         # ft_state = get_random_string(42)
         # request.session['ft_state'] = ft_state
