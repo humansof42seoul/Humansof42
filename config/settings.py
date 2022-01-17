@@ -42,6 +42,8 @@ EMAIL_HOST_USER = 'humansof42@gmail.com'
 
 EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 
+DEFAULT_FROM_EMAIL = 'humansof42@gmail.com'
+
 
 #log setting
 
@@ -49,6 +51,11 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
@@ -56,10 +63,10 @@ LOGGING = {
         }
     },
     'loggers': {
-        'user': {
-            'handlers': ['file'],
+        'django': {
+            'handlers': ['file', 'mail_admins',],
             'level': 'DEBUG',
-	    'propagete': True,
+	        'propagate': True,
         },
     }
 }
