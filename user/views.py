@@ -38,16 +38,16 @@ def change_password(request):
     return render(request, 'user/mypage.html', {'email_form': email_form, 'password_form': form})
 
 def log_in(request):
-    raise Http404("invalid user")
-    # form = LoginForm()
-    # ft_state = get_random_string(42)
-    # request.session['ft_state'] = ft_state
-    # ft_api_sign_in = "https://api.intra.42.fr/oauth/authorize"
-    # redirect_uri = f"https://{request.get_host()}{reverse('ft_login')}"
-    # # redirect_uri = f"http://{request.get_host()}{reverse('ft_login')}"
-    # response_type = "code"
-    # scope = "public"
-    # ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
+    # raise Http404("invalid user")
+    form = LoginForm()
+    ft_state = get_random_string(42)
+    request.session['ft_state'] = ft_state
+    ft_api_sign_in = "https://api.intra.42.fr/oauth/authorize"
+    redirect_uri = f"https://{request.get_host()}{reverse('ft_login')}"
+    # redirect_uri = f"http://{request.get_host()}{reverse('ft_login')}"
+    response_type = "code"
+    scope = "public"
+    ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
     # if request.method == 'POST':
     #     form = LoginForm(request.POST, request.user)
     #     email = request.POST['email']
@@ -57,7 +57,7 @@ def log_in(request):
     #     if user:
     #         login(request, user)
     #         return redirect('main')
-    # return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
+    return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
 
 
 def ft_log_in(request):
