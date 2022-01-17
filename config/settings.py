@@ -27,6 +27,59 @@ SECRET_KEY = os.environ["H42_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+WHITENOISE_AUTOREFRESH = True
+
+# mail setting
+ADMINS = [('Yeji Choi', 'saluthuge@gmail.com'), ('humansof42','humansof42@gmail.com')]
+
+MANAGERS = ADMINS
+
+EMAIL_USE_TLS = True
+
+EMAIL_PORT = 587
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'humansof42@gmail.com'
+
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'humansof42@gmail.com'
+
+
+#log setting
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+	    'filename': os.path.join(BASE_DIR, 'debug.log'),
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file', 'mail_admins',],
+            'level': 'ERROR',
+	        'propagate': True,
+        },
+    }
+}
+
 ALLOWED_HOSTS = ['*', 'localhost', 'humansof42.com', 'www.humansof42.com', '34.64.112.133', ]
 
 # Application definition
@@ -134,6 +187,7 @@ STATICFILES_DIRS = [
 	STATIC_DIR,
 ]
 STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -166,7 +220,9 @@ def get_secret(setting, secrets=secrets):
 
 FT_UID_KEY = os.environ.get('FT_UID_KEY', get_secret("FT_UID_KEY"))
 FT_SECRET_KEY = os.environ.get('FT_SECRET_KEY', get_secret("FT_SECRET_KEY"))
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', get_secret("EMAIL_HOST_PASSWORD"))
 
 AUTH_USER_MODEL = 'user.User'
 
 LOGIN_URL = '/login/'
+
