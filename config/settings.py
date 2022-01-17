@@ -30,7 +30,7 @@ DEBUG = False
 WHITENOISE_AUTOREFRESH = True
 
 # mail setting
-ADMINS = ['saluthuge@gmail.com', 'humansof42@gmail.com']
+ADMINS = [('Yeji Choi', 'saluthuge@gmail.com'), ('humansof42','humansof42@gmail.com']
 
 MANAGERS = ADMINS
 
