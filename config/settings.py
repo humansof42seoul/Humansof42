@@ -30,7 +30,9 @@ DEBUG = False
 WHITENOISE_AUTOREFRESH = True
 
 # mail setting
-ADMINS = [('Yeji Choi', 'saluthuge@gmail.com'),]
+ADMINS = ['saluthuge@gmail.com', 'humansof42@gmail.com']
+
+MANAGERS = ADMINS
 
 EMAIL_USE_TLS = True
 
@@ -64,7 +66,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file', 'mail_admins',],
-            'level': 'DEBUG',
+            'level': 'ERROR',
 	        'propagate': True,
         },
     }
