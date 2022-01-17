@@ -44,6 +44,8 @@ EMAIL_HOST_USER = 'humansof42@gmail.com'
 
 EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend
+
 DEFAULT_FROM_EMAIL = 'humansof42@gmail.com'
 
 
