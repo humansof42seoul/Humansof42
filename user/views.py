@@ -46,7 +46,7 @@ def log_in(request):
         # response_type = "code"
         # scope = "public"
         # ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
-        return render(request, 'user/ft_sign_in.html')
+        return render(request, 'user/sign_in.html')
     # form = LoginForm()
     # ft_state = get_random_string(42)
     # request.session['ft_state'] = ft_state
