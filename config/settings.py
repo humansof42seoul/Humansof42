@@ -220,6 +220,7 @@ def get_secret(setting, secrets=secrets):
 
 FT_UID_KEY = os.environ.get('FT_UID_KEY', get_secret("FT_UID_KEY"))
 FT_SECRET_KEY = os.environ.get('FT_SECRET_KEY', get_secret("FT_SECRET_KEY"))
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', get_secret("EMAIL_HOST_PASSWORD"))
 
 AUTH_USER_MODEL = 'user.User'
 
