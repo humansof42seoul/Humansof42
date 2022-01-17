@@ -30,7 +30,7 @@ DEBUG = False
 WHITENOISE_AUTOREFRESH = True
 
 # mail setting
-ADMINS = [('Yeji Choi', 'saluthuge@gmail.com'), ('humansof42','humansof42@gmail.com']
+ADMINS = [('Yeji Choi', 'saluthuge@gmail.com'), ('humansof42','humansof42@gmail.com')]
 
 MANAGERS = ADMINS
 
@@ -52,9 +52,15 @@ DEFAULT_FROM_EMAIL = 'humansof42@gmail.com'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        }
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
+            'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'file': {
