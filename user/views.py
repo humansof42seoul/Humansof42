@@ -52,7 +52,7 @@ def log_in(request):
         form = LoginForm(request.POST, request.user)
         email = request.POST['email']
         password = request.POST['password']
-    #     user = find_user_with_email(email)
+        user = find_user_with_email(email)
     #     user = authenticate(login = user.login, password = password)
     #     if user:
     #         login(request, user)
