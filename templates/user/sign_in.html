@@ -7,11 +7,11 @@
         <button type="button" class="btn btn-primary">42계정 로그인</button>
         </a>
         <br><br>
-{#        <form method="post">#}
-{#            {% csrf_token %}#}
-{#            {% bootstrap_form form %}#}
-{#            <p style="color: red; font-size: small;">{{ error }}</p>#}
-{#            <button type="submit" class="btn btn-secondary">로그인</button>#}
-{#        </form>#}
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <p style="color: red; font-size: small;">{{ error }}</p>
+            <button type="submit" class="btn btn-secondary">로그인</button>
+        </form>
     </div>
 {% endblock %}
