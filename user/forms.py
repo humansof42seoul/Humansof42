@@ -3,8 +3,8 @@ from .models import User
 from django.contrib.auth.hashers import check_password
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(max_length=32)
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(label='email', max_length=32, widget=forms.Textarea)
+    password = forms.CharField(labe='password', widget=forms.PasswordInput)
 
     def clean(self):
         clean_data = super().clean()
