@@ -61,10 +61,10 @@ def log_in(request):
         email = request.POST['email']
         password = request.POST['password']
         user = find_user_with_email(email)
-    #     user = authenticate(login = user.login, password = password)
-    #     if user:
-    #         login(request, user)
-    #         return redirect('main')
+        user = authenticate(login = user.login, password = password)
+        if user:
+            login(request, user)
+            return redirect('main')
     return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
 
 
