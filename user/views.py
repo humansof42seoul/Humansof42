@@ -9,6 +9,14 @@ from .ftauth import get_random_string, authenticate_ft_api
 from django.conf import settings
 from django.http import Http404
 
+def find_user_with_id(id):
+    user = User.objects.filter(id=id).first()
+    return user
+
+def find_user_with_email(email):
+    user = User.objects.filter(email=email).first()
+    return user
+
 @login_required
 def change_email(request):
     password_form = PasswordChangeForm(request.user)
@@ -94,14 +102,6 @@ def ft_log_in(request):
             return redirect(next_url)
         else:
             return redirect('main')
-
-def find_user_with_id(id):
-    user = User.objects.filter(id=id).first()
-    return user
-
-def find_user_with_email(email):
-    user = User.objects.filter(email=email).first()
-    return user
 
 def log_out(request):
     if request.method == "GET":
