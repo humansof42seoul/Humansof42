@@ -39,14 +39,14 @@ def change_password(request):
 
 def log_in(request):
     if request.method == 'GET':
-        # ft_state = get_random_string(42)
-        # request.session['ft_state'] = ft_state
-        # ft_api_sign_in = "https://api.intra.42.fr/oauth/authorize"
-        # redirect_uri = f"https://{request.get_host()}{reverse('ft_login')}"
-        # response_type = "code"
-        # scope = "public"
-        # ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
-        return render(request, 'user/sign_in.html')
+        ft_state = get_random_string(42)
+        request.session['ft_state'] = ft_state
+        ft_api_sign_in = "https://api.intra.42.fr/oauth/authorize"
+        redirect_uri = f"https://{request.get_host()}{reverse('ft_login')}"
+        response_type = "code"
+        scope = "public"
+        ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
+        return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url})
     # form = LoginForm()
     # ft_state = get_random_string(42)
     # request.session['ft_state'] = ft_state
