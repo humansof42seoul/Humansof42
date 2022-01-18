@@ -4,7 +4,7 @@ from django.contrib.auth.hashers import check_password
 
 class LoginForm(forms.Form):
     email = forms.EmailField(label='email', max_length=32, widget=forms.Textarea)
-    password = forms.CharField(labe='password', widget=forms.PasswordInput)
+    password = forms.CharField(label='password', widget=forms.PasswordInput)
 
     def clean(self):
         clean_data = super().clean()

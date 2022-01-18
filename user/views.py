@@ -39,6 +39,7 @@ def change_password(request):
 
 def log_in(request):
     form = LoginForm()
+    error = ''
     ft_state = get_random_string(42)
     request.session['ft_state'] = ft_state
     ft_api_sign_in = "https://api.intra.42.fr/oauth/authorize"
@@ -57,7 +58,9 @@ def log_in(request):
         if user:
             login(request, user)
             return redirect('main')
-    return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
+        else:
+            error = '유효하지 않은 계정 또는 비밀번호입니다.'
+    return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form, 'error': error})
 
 
 def ft_log_in(request):
