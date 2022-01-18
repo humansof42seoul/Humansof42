@@ -48,8 +48,8 @@ def log_in(request):
     ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
     if request.method == 'GET':
         return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
-    # elif request.method == 'POST':
-    #     form = LoginForm(request.POST, request.user)
+    elif request.method == 'POST':
+        form = LoginForm(request.POST, request.user)
     #     email = request.POST['email']
     #     password = request.POST['password']
     #     user = find_user_with_email(email)
