@@ -57,15 +57,12 @@ def log_in(request):
     if request.method == 'GET':
         return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
     elif request.method == 'POST':
-        form = LoginForm(request.POST, request.user)
-        email = request.POST['email']
-        password = request.POST['password']
-        user = find_user_with_email(email)
-        if user:
-            user = authenticate(login=user.login, password=password)
-            if user:
-                login(request, user)
-                return redirect('main')
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            request.session['login_user'] = form.login
+            return redirect('main')
+        else:
+            return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
     return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
 
 

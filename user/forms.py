@@ -12,11 +12,11 @@ class LoginForm(forms.Form):
         password = clean_data.get('password')
         if email and password:
             user = User.objects.filter(email=email).first()
-            if not check_password(password, user.password):
+            if user and check_password(password, user.password):
+                self.login = user.login
+            else:
                 self.add_error('email', '')
                 self.add_error('password', '유효하지 않은 이메일이거나 비밀번호가 틀렸습니다.')
-            else:
-                self.id = user.id
 
 class EmailChangeForm(forms.ModelForm):
     class Meta:
