@@ -67,7 +67,7 @@ def log_in(request):
                 login(request, user)
                 return redirect('main')
         else:
-            return redirect('/about')
+            return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
     return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
 
 
