@@ -66,8 +66,8 @@ def log_in(request):
             if user:
                 login(request, user)
                 return redirect('main')
-            else:
-                return redirect('/about')
+        else:
+            return redirect('/about')
     return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
 
 
