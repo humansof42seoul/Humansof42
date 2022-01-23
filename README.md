@@ -17,6 +17,7 @@
 ### Features
 - User
   - 42API로 회원가입/로그인
+  - 42API로 가입한 회원에 한해 이메일과 패스워드로 로그인
   
 - Interview
   - 인터뷰 생성, 보기, 수정, 삭제(only admin)
