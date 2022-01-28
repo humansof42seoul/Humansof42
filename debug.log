@@ -1,0 +1,336 @@
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yechoi/Desktop/Humansof42/user/views.py", line 60, in log_in
+    return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
+  File "/opt/homebrew/lib/python3.9/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/urls/resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'password_rest' not found. 'password_rest' is not a valid view function or pattern name.
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/yechoi/Desktop/Humansof42/user/views.py", line 60, in log_in
+    return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
+  File "/opt/homebrew/lib/python3.9/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/template/defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/urls/resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'password_rest' not found. 'password_rest' is not a valid view function or pattern name.
+Internal Server Error: /password_reset/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 222, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 235, in form_valid
+    form.save(**opts)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 298, in save
+    for user in self.get_users(email):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 270, in get_users
+    active_users = UserModel._default_manager.filter(**{
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_active' into field. Choices are: comment, email, groups, id, is_admin, is_superuser, last_login, likes, logentry, login, password, registered_dttm, user_permissions, usertoken
+Internal Server Error: /password_reset/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 222, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 235, in form_valid
+    form.save(**opts)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 298, in save
+    for user in self.get_users(email):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 270, in get_users
+    active_users = UserModel._default_manager.filter(**{
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_active' into field. Choices are: comment, email, groups, id, is_admin, is_superuser, last_login, likes, logentry, login, password, registered_dttm, user_permissions, usertoken
+Internal Server Error: /password_reset/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 222, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 235, in form_valid
+    form.save(**opts)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 298, in save
+    for user in self.get_users(email):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 270, in get_users
+    active_users = UserModel._default_manager.filter(**{
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_active' into field. Choices are: comment, email, groups, id, is_admin, is_superuser, last_login, likes, logentry, login, password, registered_dttm, user_permissions, usertoken
+Internal Server Error: /password_reset/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 222, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 235, in form_valid
+    form.save(**opts)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 298, in save
+    for user in self.get_users(email):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 270, in get_users
+    active_users = UserModel._default_manager.filter(**{
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_active' into field. Choices are: active, comment, email, groups, id, is_admin, is_superuser, last_login, likes, logentry, login, password, registered_dttm, user_permissions, usertoken
+Internal Server Error: /password_reset/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 222, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 235, in form_valid
+    form.save(**opts)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 298, in save
+    for user in self.get_users(email):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 270, in get_users
+    active_users = UserModel._default_manager.filter(**{
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/opt/homebrew/lib/python3.9/site-packages/django/db/models/sql/query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_active' into field. Choices are: active, comment, email, groups, id, is_admin, is_superuser, last_login, likes, logentry, login, password, registered_dttm, user_permissions, usertoken
+Internal Server Error: /password_reset/
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 222, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/views.py", line 235, in form_valid
+    form.save(**opts)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 310, in save
+    self.send_mail(
+  File "/opt/homebrew/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 260, in send_mail
+    email_message.send()
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/mail/message.py", line 284, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/mail/backends/smtp.py", line 109, in send_messages
+    sent = self._send(message)
+  File "/opt/homebrew/lib/python3.9/site-packages/django/core/mail/backends/smtp.py", line 125, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/opt/homebrew/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/smtplib.py", line 897, in sendmail
+    (code, resp) = self.data(msg)
+  File "/opt/homebrew/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/smtplib.py", line 566, in data
+    raise SMTPDataError(code, repl)
+smtplib.SMTPDataError: (550, b'5.4.5 Daily user sending quota exceeded. pi9sm3233859pjb.46 - gsmtp')

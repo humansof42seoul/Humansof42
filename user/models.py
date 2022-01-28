@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.conf import settings
 from .managers import MyUserManager
 
 
@@ -9,6 +8,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     login = models.CharField(max_length=20, primary_key=True)
     id = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=50, unique=True, blank=True, null=True)
+    is_active = models.BooleanField(default=True)
     registered_dttm = models.DateTimeField(auto_now_add=True, null=True)
     is_admin = models.BooleanField(default=False)
 

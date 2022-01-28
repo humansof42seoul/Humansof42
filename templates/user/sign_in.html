@@ -12,5 +12,6 @@
             {{ form.as_p }}
             <button type="submit" class="btn btn-secondary">로그인</button>
         </form>
+        <p><a href="{% url 'password_reset' %}">비밀번호 재설정</a></p>
     </div>
 {% endblock %}
