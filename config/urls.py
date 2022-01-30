@@ -19,6 +19,7 @@ from interview.views import interview_list, about
 from user.views import log_in, ft_log_in,log_out
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', interview_list, name="main"),
@@ -29,6 +30,10 @@ urlpatterns = [
     path('login/', log_in, name="login"),
     path('logout/', log_out, name="logout"),
     path('interviews/', include('interview.urls')),
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('password_reset_confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('summernote/', include('django_summernote.urls')),
 ]
 

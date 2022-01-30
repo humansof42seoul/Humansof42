@@ -9,6 +9,8 @@ from .ftauth import get_random_string, authenticate_ft_api
 from django.conf import settings
 from django.http import Http404
 
+protocol = settings.PROTOCOL
+
 def find_user_with_id(id):
     user = User.objects.filter(id=id).first()
     return user
@@ -49,8 +51,8 @@ def log_in(request):
     form = LoginForm()
     ft_state = get_random_string(42)
     request.session['ft_state'] = ft_state
-    ft_api_sign_in = "https://api.intra.42.fr/oauth/authorize"
-    redirect_uri = f"https://{request.get_host()}{reverse('ft_login')}"
+    ft_api_sign_in = f"{protocol}://api.intra.42.fr/oauth/authorize"
+    redirect_uri = f"{protocol}://{request.get_host()}{reverse('ft_login')}"
     response_type = "code"
     scope = "public"
     ft_sign_in_url = f"{ft_api_sign_in}?client_id={settings.FT_UID_KEY}&redirect_uri={redirect_uri}&response_type={response_type}&state={ft_state}&scope={scope}"
@@ -72,7 +74,7 @@ def ft_log_in(request):
             raise Http404("login error")
         ft_auth, ft_user_data = authenticate_ft_api(
             request.GET.get('code'),
-            f"https://{request.get_host()}{reverse('ft_login')}"
+            f"{protocol}://{request.get_host()}{reverse('ft_login')}"
             # f"http://{request.get_host()}{reverse('ft_login')}"
         )
         if ft_auth is None:

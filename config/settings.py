@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os, json
-from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -20,6 +19,25 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = os.path.dirname(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+SECRET_INTO_FILE = os.path.join(BASE_DIR, 'config', 'secret_into_file.json')
+
+with open(SECRET_INTO_FILE) as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = f"Set the {setting} environment variable"
+        raise ImproperlyConfigured(error_msg)
+
+
+FT_UID_KEY = os.environ.get('FT_UID_KEY', get_secret("FT_UID_KEY"))
+FT_SECRET_KEY = os.environ.get('FT_SECRET_KEY', get_secret("FT_SECRET_KEY"))
+PROTOCOL = os.environ.get('PROTOCOL', get_secret("PROTOCOL"))
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ["H42_SECRET_KEY"]
@@ -42,7 +60,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_HOST_USER = 'humansof42@gmail.com'
 
-EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', get_secret("EMAIL_HOST_PASSWORD"))
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -204,24 +222,6 @@ SUMMERNOTE_CONFIG = {
 DATA_UPLOAD_MAX_MEMORY_SIZE = None
 #
 # FILE_UPLOAD_MAX_MEMORY_SIZE = None
-
-SECRET_INTO_FILE = os.path.join(BASE_DIR, 'config', 'secret_into_file.json')
-
-with open(SECRET_INTO_FILE) as f:
-    secrets = json.loads(f.read())
-
-
-def get_secret(setting, secrets=secrets):
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = f"Set the {setting} environment variable"
-        raise ImproperlyConfigured(error_msg)
-
-
-FT_UID_KEY = os.environ.get('FT_UID_KEY', get_secret("FT_UID_KEY"))
-FT_SECRET_KEY = os.environ.get('FT_SECRET_KEY', get_secret("FT_SECRET_KEY"))
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', get_secret("EMAIL_HOST_PASSWORD"))
 
 AUTH_USER_MODEL = 'user.User'
 
