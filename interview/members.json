@@ -1,0 +1,84 @@
+{
+  "members": [
+    {
+      "name": "jwon",
+      "role": "photographer",
+      "photo": "jwon.jpeg",
+      "github": "jwon42"
+    },
+    {
+      "name": "byukim",
+      "role": "interviewer",
+      "photo": "byukim.jpg",
+      "github": "AndroidNetrunner"
+    },
+    {
+      "name": "yeslee",
+      "role": "photographer",
+      "photo": "yeslee.jpg",
+      "github": "yeslee-v"
+    },
+    {
+      "name": "yeonwlee",
+      "role": "interviewer",
+      "photo": "yeonwlee.jpg",
+      "github": "yeonwlee"
+    },
+    {
+      "name": "jaewpark",
+      "role": "photographer",
+      "photo": "jaewpark.jpg",
+      "github": "ohdair"
+    },
+    {
+      "name": "hmoon",
+      "role": "interviewer",
+      "photo": "hmoon.jpg",
+      "github": "42hm"
+    },
+    {
+      "name": "seungyel",
+      "role": "interviewer",
+      "photo": "seungyel.jpeg",
+      "github": "2winyear"
+    },
+    {
+      "name": "hojo",
+      "role": "interviewer",
+      "photo": "hojo.jpg",
+      "github": "joho3116"
+    },
+    {
+      "name": "soooh",
+      "role": "interviewer",
+      "photo": "soooh.jpg",
+      "github": "Elli-v"
+    },
+    {
+      "name": "echung",
+      "role": "interviewer",
+      "photo": "echung.jpeg",
+      "github": "euiminnn"
+    }
+  ],
+  "alumni": [
+    {
+      "name":"yechoi",
+      "role": "interviewer",
+      "photo": "yechoi.jpeg",
+      "github": "yechoi42"
+    },
+    {
+      "name": "iwoo",
+      "role": "interviewer",
+      "photo": "iwoo.png",
+      "github": "humblEgo"
+    },
+    {
+      "name": "myungkim",
+      "role": "interviewer",
+      "photo": "myungkim.jpg",
+      "github": "smok2y"
+    }
+  ]
+}
