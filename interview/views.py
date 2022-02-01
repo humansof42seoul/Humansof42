@@ -3,10 +3,8 @@ import json
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.paginator import Paginator
 from django.http import Http404, HttpResponse, JsonResponse
 from django.conf import settings
-from django.template.loader import render_to_string
 
 from .models import Interview, Comment
 from .forms import InterviewForm, CommentForm
@@ -17,7 +15,11 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'interview/about.html')
+    with open('interview/members.json') as json_file:
+        json_data = json.load(json_file)
+        members = json_data["members"]
+        alumni = json_data["alumni"]
+    return render(request, 'interview/about.html', {"members": members, "alumni": alumni})
 
 
 def interview_detail(request, pk):
