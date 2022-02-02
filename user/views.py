@@ -61,7 +61,9 @@ def log_in(request):
     elif request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            request.session['login_user'] = form.login
+            user = find_user_with_id(form.user_id)
+            request.session['login_user'] = user.login
+            login(request, user)
             return redirect('main')
         else:
             return render(request, 'user/sign_in.html', {'ft_sign_in_url': ft_sign_in_url, 'form': form})
@@ -75,7 +77,6 @@ def ft_log_in(request):
         ft_auth, ft_user_data = authenticate_ft_api(
             request.GET.get('code'),
             f"{protocol}://{request.get_host()}{reverse('ft_login')}"
-            # f"http://{request.get_host()}{reverse('ft_login')}"
         )
         if ft_auth is None:
             raise Http404("invalid user")
