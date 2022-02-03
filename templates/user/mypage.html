@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+
 {% block contents %}
     <div class="masthead text-secondary container col-lg-8 col-md-10 mx-auto" style="max-width:960px;">
     <h2>{{ user.login }}</h2>
@@ -8,13 +10,13 @@
         {% endif %}
     <form method="POST" action="{% url 'change_email' %}">
         {% csrf_token %}
-        {{ email_form }}
+        {% bootstrap_form email_form %}
         <button type="submit" class="btn btn-secondary">이메일 수정하기</button>
     </form>
     <br>
     <form method="post" action="{% url 'change_password' %}">
         {% csrf_token %}
-        {{ password_form }}
+        {% bootstrap_form password_form %}
         <p style="color: red; font-size: small;">* 초기 패스워드는 42 로그인 아이디입니다.</p>
         <button type="submit" class="btn btn-secondary">비밀번호 수정하기</button>
     </form>
