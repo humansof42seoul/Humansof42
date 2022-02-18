@@ -3,7 +3,7 @@ import json
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import Http404, HttpResponse, JsonResponse
+from django.http import Http404, HttpResponse, HttpResponseForbidden, JsonResponse
 from django.conf import settings
 
 from .models import Interview, Comment
@@ -89,7 +89,7 @@ def interview_list(request):
 
 def like_interview(request):
     if not request.user.is_authenticated:
-        return
+        return HttpResponseForbidden()
     if request.method == 'POST':
         pk = request.POST.get('pk')
         interview = get_object_or_404(Interview, id=pk)
