@@ -10,7 +10,7 @@
 - Postgresql
 - Oauth 2.0
 - Summernote
-- GCP Compute Engine
+- GCP Compute Engine -> Vultr로 서버 이전 예정
 - nginx, gunicorn
 
 
