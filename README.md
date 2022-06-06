@@ -2,6 +2,11 @@
 42서울 주변의 사람들을 인터뷰하는 채널입니다.
 [humansof42.com](https://humansof42.com)에서 배포된 웹사이트를 만나볼 수 있습니다.
 
+### server migration
+- buy a new server
+- set development settings
+
+
 ### Technologies
 - Python
 - Django
