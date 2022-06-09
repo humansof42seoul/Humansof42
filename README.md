@@ -5,6 +5,7 @@
 ### server migration
 - buy a new server
 - set development settings
+- dump postgresql DB
 
 
 ### Technologies
