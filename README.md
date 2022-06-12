@@ -6,6 +6,7 @@
 - buy a new server
 - set development settings
 - dump postgresql DB
+- update collections with python 3.10
 
 
 ### Technologies

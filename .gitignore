@@ -6,4 +6,4 @@ __pycache__
 db.sqlite3
 media
 debug.log
-
+*_bak.sql
