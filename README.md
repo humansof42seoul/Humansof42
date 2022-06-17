@@ -8,6 +8,7 @@
 - dump postgresql DB
 - update collections with python 3.10
 - install gunicorn and set gunicorn.socket & gunicorn.service
+- update nginx settings
 
 
 ### Technologies
