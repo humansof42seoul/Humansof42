@@ -10,6 +10,7 @@
 - install gunicorn and set gunicorn.socket & gunicorn.service
 - update nginx settings
 - install certbot but it does not support python 3.10....
+- update nginx enable-sites config
 
 
 ### Technologies
