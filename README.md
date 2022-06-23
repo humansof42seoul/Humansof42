@@ -11,6 +11,7 @@
 - update nginx settings
 - install certbot but it does not support python 3.10....
 - update nginx enable-sites config
+- update user on /etc/systemd/system/gunicorn.service -> sock working
 
 
 ### Technologies
