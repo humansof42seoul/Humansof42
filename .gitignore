@@ -4,6 +4,5 @@ h42.env
 migrations
 __pycache__
 db.sqlite3
-media
 debug.log
 *_bak.sql
