@@ -3,15 +3,19 @@
 [humansof42.com](https://humansof42.com)에서 배포된 웹사이트를 만나볼 수 있습니다.
 
 ### server migration
-- buy a new server
-- set development settings
-- dump postgresql DB
-- update collections with python 3.10
-- install gunicorn and set gunicorn.socket & gunicorn.service
-- update nginx settings
-- install certbot but it does not support python 3.10....
-- update nginx enable-sites config
-- update user on /etc/systemd/system/gunicorn.service -> sock working
+[x] buy a new server
+[x] set development settings
+[x] dump postgresql DB
+[x] update collections with python 3.10
+[x] install gunicorn and set gunicorn.socket & gunicorn.service
+[x] update nginx settings
+[x] install certbot but it does not support python 3.10....
+[x] update nginx enable-sites config
+[x] update user on /etc/systemd/system/gunicorn.service -> sock working
+[x] run dev server 
+[ ] back up nginx, gunicorn settings using links
+[ ] set ssl certificates and enable https 
+[ ] change domain to new server
 
 
 ### Technologies
