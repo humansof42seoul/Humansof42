@@ -13,9 +13,9 @@
 [x] update nginx enable-sites config
 [x] update user on /etc/systemd/system/gunicorn.service -> sock working
 [x] run dev server 
-[ ] back up nginx, gunicorn settings using links
-[ ] set ssl certificates and enable https 
-[ ] change domain to new server
+[x] back up nginx, gunicorn settings using links
+[x] set ssl certificates 
+[ ] move domain to new server 
 
 
 ### Technologies
