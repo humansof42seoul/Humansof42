@@ -15,7 +15,7 @@
 [x] run dev server 
 [x] back up nginx, gunicorn settings using links
 [x] set ssl certificates 
-[ ] move domain to new server 
+[x] move domain to new server 
 
 
 ### Technologies
