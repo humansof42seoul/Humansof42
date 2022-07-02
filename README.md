@@ -45,4 +45,5 @@
 - [x] back up nginx, gunicorn settings using links
 - [x] set ssl certificates
 - [x] move domain to new server
+- [x] update 42 api key in secret_into_file.json
 
