@@ -46,4 +46,5 @@
 - [x] set ssl certificates
 - [x] move domain to new server
 - [x] update 42 api key in secret_into_file.json
+- [x] fix 500 error by editing collections of python3
 
