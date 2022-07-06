@@ -86,19 +86,19 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-	    'filename': os.path.join(BASE_DIR, 'debug.log'),
+	        'filename': os.path.join(BASE_DIR, 'debug.log'),
         }
     },
     'loggers': {
         'django.request': {
-            'handlers': ['file', 'mail_admins',],
+            'handlers': ['mail_admins',],
             'level': 'ERROR',
 	        'propagate': True,
         },
     }
 }
 
-ALLOWED_HOSTS = ['*', 'localhost', 'humansof42.com', 'www.humansof42.com', '34.64.112.133', ]
+ALLOWED_HOSTS = ['humansof42.com', 'www.humansof42.com', '141.164.51.108']
 
 # Application definition
 
