@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/manage.py collectstatic --y
+./manage.py collectstatic 
 sudo systemctl restart gunicorn
 sudo systemctl daemon-reload
 sudo systemctl restart gunicorn.socket gunicorn.service
