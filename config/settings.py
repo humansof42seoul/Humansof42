@@ -90,8 +90,13 @@ LOGGING = {
         }
     },
     'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'django.request': {
-            'handlers': ['mail_admins',],
+            'handlers': ['mail_admins'],
             'level': 'ERROR',
 	        'propagate': True,
         },
