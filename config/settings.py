@@ -77,6 +77,15 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse',
         }
     },
+    'formatters': {
+        'format1': {
+            'format': '[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s',
+            'datefmt': '%d/%b/%Y %H:%M:%S'
+        },
+        'format2': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
@@ -87,7 +96,8 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
 	        'filename': os.path.join(BASE_DIR, 'debug.log'),
-        }
+            'formatter': 'format1',
+        },
     },
     'loggers': {
         'django': {
