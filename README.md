@@ -4,14 +4,14 @@
 
 
 ### Technologies
-- Python
+- Python 3.10
 - Django
 - Django REST framework
 - Bootstrap
 - Postgresql
 - Oauth 2.0
 - Summernote
-- Vultr로 서버 이전 예정
+- Vultr(Ubuntu 22.04)
 - nginx, gunicorn
 
 
