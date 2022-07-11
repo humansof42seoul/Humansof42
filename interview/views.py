@@ -8,7 +8,7 @@ from django.conf import settings
 
 from .models import Interview, Comment
 from .forms import InterviewForm, CommentForm
-
+from .context_processors import add_image_to_context
 
 def home(request):
     return render(request, 'interview/index.html')
@@ -33,6 +33,8 @@ def interview_detail(request, pk):
     comment_form = CommentForm()
     comments = interview.comment_set.all()
     image = interview.image
+    url = image.url
+    add_image_to_context(url)
     return render(request, 'interview/interview_detail.html', {'interview': interview, 'image': image,
                                                                'is_liked': is_liked,
                                                                'comments': comments, 'comment_form': comment_form})
