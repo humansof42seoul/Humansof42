@@ -33,7 +33,7 @@ def interview_detail(request, pk):
     comment_form = CommentForm()
     comments = interview.comment_set.all()
     image = interview.image
-    url = image.url
+    url = interview.get_thumbnail
     add_image_to_context(url)
     return render(request, 'interview/interview_detail.html', {'interview': interview, 'image': image,
                                                                'is_liked': is_liked,

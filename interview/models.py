@@ -2,6 +2,7 @@ from django.db import models
 from imagekit.models import ProcessedImageField, ImageSpecField
 from imagekit.processors import ResizeToFit
 from user.models import User
+from sorl.thumbnail import get_thumbnail
 
 
 class Interview(models.Model):
@@ -25,6 +26,9 @@ class Interview(models.Model):
 
     def total_likes(self):
         return self.likes.count()
+
+    def get_thumbnail(self):
+        return get_thumbnail(self.image, '200x200', crop='center').url
 
     class Meta:
         db_table = '인터뷰'
