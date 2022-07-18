@@ -16,7 +16,7 @@
     <article>
     <div class="container mb-5" style="text-align:center;">
         {% if image %}
-        <img class="img-fluid" src="{{ image.url }}" /><br>
+	<img class="img-fluid" id="main-img" src="{{ image.url }}" data-thumbnail="{{ thumbnail_url }}" /><br>
         {% endif %}
     </div>
     <div class="container col-lg-8 col-md-10 mx-auto" style="max-width:960px;">
