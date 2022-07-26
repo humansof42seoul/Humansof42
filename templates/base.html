@@ -57,9 +57,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/interviews/#portfolio">Interviews</a></li>
-{#                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/interviews/#contact">Recommendation</a></li>#}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/about/">About</a></li>
-                        {% if user.is_admin %}
+                        {% if user.is_authenticated and user.is_admin %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{%  url 'interview_write' %}">Write</a></li>
                         {% else %}
                         {% endif %}
