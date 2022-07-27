@@ -93,7 +93,7 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'file': {
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'class': 'logging.FileHandler',
 	        'filename': os.path.join(BASE_DIR, 'debug.log'),
             'formatter': 'format1',
@@ -102,7 +102,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'propagate': True,
         },
         'django.request': {
