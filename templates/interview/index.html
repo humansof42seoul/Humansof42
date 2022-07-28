@@ -21,7 +21,6 @@
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1" OnClick="location.href ='/interviews/{{ interview.pk }}'" style="cursor:pointer;">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
-{#                                    <i class="fas fa-child fa-2x"></i>#}
                                     {{ interview.interviewee }}
                                 </div>
                             </div>
@@ -29,7 +28,6 @@
                             {% thumbnail interview.image "350x300" crop="center" as im %}
                                 <img class="h-100 w-100" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                             {% endthumbnail %}
-{#                                <img class="img-fluid" src="{{ interview.image.url }}" alt="" />#}
                         </div>
                     </div>
                     {% endfor %}
@@ -144,6 +142,6 @@
         </footer>
 
             <!-- Contact form JS-->
-        <script src="../../static/mail/jqBootstrapValidation.js"></script>
-        <script src="../../static/mail/contact_me.js"></script>
+	    {#        <script src="/static/mail/jqBootstrapValidation.js"></script>#}
+	    {#        <script src="/static/mail/contact_me.js"></script>#}
 {% endblock %}
